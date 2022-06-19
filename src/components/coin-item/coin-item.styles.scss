@@ -1,0 +1,32 @@
+.coinItem-master{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: .5px solid rgb(172, 172, 172);
+    border-top: 0.5px solid rgb(175, 175, 175);
+    align-items: center;
+
+
+
+    img-symbol{
+        display: flex;
+        align-items: center;
+        
+        
+
+    }
+    .coin-item-image{
+        height: 20px;
+        width: auto;
+        margin: 0 5px;
+        position: relative;
+        box-sizing: border-box;
+        top: 5px;
+
+    }
+    .item-name{
+        position: relative;
+        top: -1px;
+    }
+}
+
