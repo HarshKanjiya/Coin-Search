@@ -15,13 +15,27 @@ const CoinPage = () => {
         .then((user) => {setCoinData(user)})
     },[])
     console.log('coinData', coinData)
+
+    const greenOrred = (x) => {
+
+        if((x) < 0){
+            return(<p className='red-color'> {x} </p>)
+        }
+        else if(x > 0){
+            return(<p className='green-color'> {x} </p>  )
+        }
+        else{
+            return(<p> {x} </p>  )
+        }
+
+    }
     return ( 
         <div>
             <div className='coin-container'>
                 <div className='content coin-name'>
                     <h1>{coinData.name}</h1>
                 </div>
-                <div className='content boxx'>
+                <div className='content'>
                     
                     <div className='rank'>
                         <span> #{coinData.market_cap_rank} </span>
@@ -29,11 +43,13 @@ const CoinPage = () => {
                     <div className='info'>
                         <div className='coin-heading'>
                             {coinData.image && <img src={coinData.image.small}/>}
-                            <p> {coinData.name} </p>
+
                             <p> {coinData.symbol} </p>
                         </div>
+                        <span>price :</span>
                         <div className='coin-price'>
-                            {coinData.market_data ? <h1> {coinData.market_data.current_price.usd} </h1>: null}
+                            
+                            {coinData.market_data ? <h1>${coinData.market_data.current_price.usd} </h1>: null}
                         </div>
                     </div>
                 </div>
@@ -51,12 +67,12 @@ const CoinPage = () => {
                         </thead>
                         <tbody>
                             <tr>
-                                <td> {coinData.market_data ? coinData.market_data.price_change_percentage_1h_in_currency.usd : null} </td>
-                                <td> {coinData.market_data ? coinData.market_data.price_change_percentage_24h_in_currency.usd : null} </td>
-                                <td> {coinData.market_data ? coinData.market_data.price_change_percentage_7d_in_currency.usd : null} </td>
-                                <td> {coinData.market_data ? coinData.market_data.price_change_percentage_14d_in_currency.usd : null} </td>
-                                <td> {coinData.market_data ? coinData.market_data.price_change_percentage_30d_in_currency.usd : null} </td>
-                                <td> {coinData.market_data ? coinData.market_data.price_change_percentage_1y_in_currency.usd : null} </td>
+                                <td> {coinData.market_data ? greenOrred(coinData.market_data.price_change_percentage_1h_in_currency.usd) : null} </td>
+                                <td> {coinData.market_data ? greenOrred(coinData.market_data.price_change_percentage_24h_in_currency.usd) : null} </td>
+                                <td> {coinData.market_data ? greenOrred(coinData.market_data.price_change_percentage_7d_in_currency.usd) : null} </td>
+                                <td> {coinData.market_data ? greenOrred(coinData.market_data.price_change_percentage_14d_in_currency.usd) : null} </td>
+                                <td> {coinData.market_data ? greenOrred(coinData.market_data.price_change_percentage_30d_in_currency.usd) : null} </td>
+                                <td> {coinData.market_data ? greenOrred(coinData.market_data.price_change_percentage_1y_in_currency.usd) : null} </td>
                         
                             </tr>
                         </tbody>
@@ -67,7 +83,7 @@ const CoinPage = () => {
                         <div className='left'>
                             <div className="row">
                             <h4>24 Hour Low</h4>
-                            <p>{coinData.market_data ? coinData.market_data.low_24h.usd : null}</p>
+                            <p className='space-for-4values'>{coinData.market_data ? coinData.market_data.low_24h.usd : null}</p>
                             <h4>24 Hour High</h4>
                             <p>{coinData.market_data ? coinData.market_data.high_24h.usd : null}</p>
                             </div>
@@ -75,7 +91,7 @@ const CoinPage = () => {
                         <div className='right'>
                             <div className="row">
                             <h4>Market Cap</h4>
-                            <p>{coinData.market_data ? coinData.market_data.market_cap.usd :null}</p>
+                            <p className='space-for-4values'>{coinData.market_data ? coinData.market_data.market_cap.usd :null}</p>
                             <h4>Circulating Supply</h4>
                             <p>{coinData.market_data ? coinData.market_data.circulating_supply : null}</p>
                             </div>
