@@ -11,9 +11,9 @@
    
     
     .rank{
-        position: relative;
-        top: 37px;
         width: fit-content;
+        position: absolute;
+        top: 216px;
     }
     .coin-heading{
         display: flex;
@@ -56,14 +56,12 @@
 }
 
 
-@media screen and (min-width : 900px) {
+@media screen and (min-width : 1072px) {
     .rank{
         position: absolute;
-        z-index: 0;
         font-size: 150px;
         overflow: hidden;
         left: 0;
-        top: 50px;
         color: #585858;
     }
     
