@@ -1,4 +1,4 @@
-import './nav-bar.styles.scss'
+import './nav-bar.styles.css'
 import {FaCoins} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 const NavBar = () => {

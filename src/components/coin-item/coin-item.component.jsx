@@ -1,4 +1,4 @@
-import './coin-item.styles.scss'
+import './coin-item.styles.css'
 import {Link} from'react-router-dom';
 const CoinItem = (props) => {
     const { market_cap_rank, name, image, symbol, current_price, price_change_percentage_24h, total_volume, market_cap, id } = props.coins;

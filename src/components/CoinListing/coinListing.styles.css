@@ -5,24 +5,17 @@
     justify-content: center;
     flex-direction: column;
 
-
+}
     .headings{
         display: flex;
         justify-content: space-between;
         flex-direction: row;    
         border-radius: 10px;
-        margin: 0 -15px;
+        margin: 0 -10px;
         margin-bottom: 20px;
         padding: 5px 10px;
-        box-shadow: 5px 5px 5px rgb(197, 197, 197),
-        -5px -5px 5px rgb(255, 255, 255);
+        box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.1);
     }
 
-    .coinList-coinItem{
+   
 
-
-        :hover{
-            transform: scale(1.025);
-        }
-    }
-}

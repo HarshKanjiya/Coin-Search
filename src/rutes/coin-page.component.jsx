@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import './coin-page.styles.scss';
+import './coin-page.styles.css';
+import {motion,AnimatePresence} from 'framer-motion'
 
 
 const CoinPage = () => {
@@ -30,11 +31,22 @@ const CoinPage = () => {
 
     }
     return ( 
-        <div>
-            <div className='coin-container'>
-                <div className='content coin-name'>
-                    <h1>{coinData.name}</h1>
-                </div>
+        <AnimatePresence>
+            <motion.div className='coin-container'
+             initial={{x:30,opacity:0}}
+             animate={{x:0,opacity:1}}
+             exit={{x:-30,opacity:0}}
+             transition={{duration:1.3 , type:'spring',stiffness:200}}
+     
+            >
+                <motion.div className='content coin-name'
+                initial={{opacity:0}}
+                animate={{opacity:1}}
+                transition={{duration:1.3}}>
+                    <motion.h1
+                    
+                    >{coinData.name}</motion.h1>
+                </motion.div>
                 <div className='content'>
                     
                     <div className='rank'>
@@ -102,9 +114,9 @@ const CoinPage = () => {
                     <h3>About</h3>
                     <p> {coinData.market_data ? coinData.description.en : null} </p>
                 </div>
-            </div>
+            </motion.div>
 
-        </div>
+        </AnimatePresence>
      );
 }
  
